@@ -1,0 +1,14 @@
+send_shm.cpp:1:1: error: ‘A’ does not name a type
+    1 | A shared memory example
+      | ^
+In file included from /usr/include/c++/12/iosfwd:40,
+                 from /usr/include/c++/12/ios:38,
+                 from /usr/include/c++/12/ostream:38,
+                 from /usr/include/c++/12/iostream:39,
+                 from send_shm.cpp:2:
+/usr/include/c++/12/bits/postypes.h:68:11: error: ‘ptrdiff_t’ does not name a type
+   68 |   typedef ptrdiff_t     streamsize; // Signed integral type
+      |           ^~~~~~~~~
+/usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h:214:23: note: ‘size_t’ declared here
+  214 | typedef __SIZE_TYPE__ size_t;
+      |                       ^~~~~~
