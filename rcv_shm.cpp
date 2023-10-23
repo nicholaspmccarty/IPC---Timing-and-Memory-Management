@@ -10,6 +10,8 @@
 
 // Read data from shared memory
 int main(int argc, char* argv[]) {
+    (void) argc;
+    (void) argv;
     const int shm_key = shmget(SHM_KEY, MEM_SIZE, S_IRUSR);
     int* sharedMem =
         reinterpret_cast<int*>(shmat(shm_key,

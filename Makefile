@@ -4,7 +4,7 @@ CPPFLAGS=--std=c++2b -Werror -Wall -Wextra -Wconversion -Wsign-conversion -Wpeda
 
 SRCS_PIPE=send_pipe.cpp
 SRCS_SEND_SHM=send_shm.cpp
-SRCS_RCV_SHM=send_shm.cpp
+SRCS_RCV_SHM=rcv_shm.cpp
 SRCS_SEND_MSG=send_msg.cpp
 SRCS_RCV_MSG=rcv_msg.cpp
 
@@ -14,7 +14,7 @@ OBJS_RCV_SHM=$(subst .cpp,.o,$(SRCS_RCV_SHM))
 OBJS_SEND_MSG=$(subst .cpp,.o,$(SRCS_SEND_MSG))
 OBJS_RCV_MSG=$(subst .cpp,.o,$(SRCS_RCV_MSG))
 
-all: send_pipe send_shm rcv_shm send_msg rcv_msg 
+all: send_pipe send_shm rcv_shm send_msg rcv_msg
 
 send_pipe: $(OBJS_PIPE)
 	$(CXX) $(CPPFLAGS) -o send_pipe $(OBJS_PIPE)
@@ -41,7 +41,7 @@ depend: .depend
 
 # Clean compiled C++ files
 clean:
-	$(RM) $(OBJS_PIPE) $(OBJS_RCV_SHM) $(OBJS_SEND_SHM) $(OBJS_RCV_MSG) $(OBJS_SEND_MSG)*~ .depend lab send_pipe send_shm send_msg rcv_msg rcv_shm
+	$(RM) *.o $(OBJS_PIPE) $(OBJS_RCV_SHM) $(OBJS_SEND_SHM) $(OBJS_RCV_MSG) $(OBJS_SEND_MSG)*~ .depend lab send_pipe send_shm send_msg rcv_msg rcv_shm
  
 
 include .depend
