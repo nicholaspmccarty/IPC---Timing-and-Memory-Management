@@ -8,7 +8,6 @@
 #include <chrono>
 
 int main() {
-    
     std::chrono::system_clock::time_point startTime = std::chrono::system_clock::now(); 
     const int msqid =
         msgget(123456, S_IRUSR);
@@ -23,10 +22,9 @@ int main() {
     std::chrono::system_clock::time_point endTime = std::chrono::system_clock::now(); // Record end time
     std::chrono::duration<double> elapsedTime = endTime - startTime;
 
-    std::ofstream outputFile("data1.txt");
+    std::ofstream outputFile("data1.csv");
     outputFile << "Elapsed Time (seconds)\n";
     outputFile << elapsedTime.count() << "\n";
     outputFile.close();
-
     return 0;
 }

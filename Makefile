@@ -14,7 +14,7 @@ OBJS_RCV_SHM=$(subst .cpp,.o,$(SRCS_RCV_SHM))
 OBJS_SEND_MSG=$(subst .cpp,.o,$(SRCS_SEND_MSG))
 OBJS_RCV_MSG=$(subst .cpp,.o,$(SRCS_RCV_MSG))
 
-all: send_pipe send_shm rcv_shm send_msg rcv_msg
+all: send_pipe send_shm rcv_shm send_msg rcv_msg 
 
 send_pipe: $(OBJS_PIPE)
 	$(CXX) $(CPPFLAGS) -o send_pipe $(OBJS_PIPE)
