@@ -14,6 +14,10 @@ void parent(int pipefd[]);
 int main(int argc, char** argv) {
     (void) argc;
     (void) argv;
+    if (argc != 3) {
+        std::cout << "Usage /.send_pipe <numBytes> <numMessages>" << std::endl;
+        return -55;
+    }
     int pipefd[2];
     pipe(pipefd); // check return to ensure success
     std::chrono::system_clock::time_point startTime = std::chrono::system_clock::now();
