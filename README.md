@@ -1,4 +1,4 @@
-# IPC---Timing-and-Memory-Management
+# IPC Timing and Memory Management
 
 ## Prerequisites
 - C++ compiler (e.g., g++)
