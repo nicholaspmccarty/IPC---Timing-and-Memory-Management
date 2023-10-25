@@ -11,7 +11,9 @@
 void child(int pipefd[]);
 void parent(int pipefd[]);
 
-int main() {
+int main(int argc, char** argv) {
+    (void) argc;
+    (void) argv;
     int pipefd[2];
     pipe(pipefd); // check return to ensure success
     std::chrono::system_clock::time_point startTime = std::chrono::system_clock::now();
