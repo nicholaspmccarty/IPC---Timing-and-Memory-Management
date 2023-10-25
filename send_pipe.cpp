@@ -3,6 +3,7 @@
 #include <ext/stdio_filebuf.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <chrono>
 
 #define READ 0
 #define WRITE 1
@@ -13,6 +14,7 @@ void parent(int pipefd[]);
 int main() {
     int pipefd[2];
     pipe(pipefd); // check return to ensure success
+    std::chrono::system_clock::time_point startTime = std::chrono::system_clock::now();
     pid_t pid = fork();
     if (pid == 0) {
         child(pipefd);
@@ -22,6 +24,12 @@ int main() {
         waitpid(pid,
             &exitCode, 0);
     }
+    std::chrono::system_clock::time_point endTime = std::chrono::system_clock::now();
+    std::chrono::duration<double> elapsedTime = endTime - startTime;
+    double executionTime = elapsedTime.count();
+    std::ofstream out("pipe.csv");
+    out<< "5" << "," << "5" << "," << executionTime << "\n";
+    out.close();
     return 0;
 }
 
